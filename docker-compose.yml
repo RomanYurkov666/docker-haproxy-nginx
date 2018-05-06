@@ -1,0 +1,29 @@
+version: '3.5'
+
+services:
+  webserver1:
+    build: WebServer1/.
+    ports:
+     - 8080:8080
+    networks:
+       net: 
+        ipv4_address: 172.20.200.10
+
+  webserver2:
+    build: WebServer2/.
+    ports:
+     - 8081:8080
+    networks:
+       net:
+        ipv4_address: 172.20.200.20
+
+networks:
+  net:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+      -
+        subnet: 172.20.200.0/24
+
+
