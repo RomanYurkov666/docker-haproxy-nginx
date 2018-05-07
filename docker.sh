@@ -9,6 +9,10 @@ for ((i=1; i<3; i++)) {
 }
 
 echo
+echo "Create docker network"
+docker network create docker_net  --subnet 172.20.200.0/24
+
+echo
 echo "Stop currently running containers "
 
 for ((i=1; i<=2; i++)) {
